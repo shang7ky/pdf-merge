@@ -8,7 +8,7 @@ const { PDFDocument } = require('pdf-lib');
 const fs = require('fs');
 const lodash = require('lodash');
 
-const readPDF = async () => {
+const readPDF = () => {
   const files = fs.readdirSync('.');
   const list = files.filter(item => item.match(/\.pdf$/))
   
@@ -49,6 +49,6 @@ const mergePDF = async ({ sourceFiles, outputFile }) => {
   fs.writeFileSync(outputFile || 'merge.pdf', pdfBytes);
 };
 
-const sourceFiles = readPDF()
+const sourceFiles = readPDF();
 mergePDF({ sourceFiles });
 
